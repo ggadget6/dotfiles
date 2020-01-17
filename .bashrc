@@ -120,4 +120,4 @@ export EDITOR=vim
 eval "$(dircolors ~/.dircolors)"
 
 set -o vi
-alias config='/usr/bin/git --git-dir=/home/rushilk/.cfg/ --work-tree-/home/rushilk'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
