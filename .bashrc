@@ -117,7 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 export EDITOR=vim
-eval "$(dircolors ~/.dircolors)"
 
 set -o vi
-alias config='/usr/bin/git --git-dir=/home/rushilk/.cfg/ --work-tree-/home/rushilk'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+PS1='\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\$\[\e[m\] '
