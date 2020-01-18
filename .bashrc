@@ -121,3 +121,4 @@ eval "$(dircolors ~/.dircolors)"
 
 set -o vi
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+bind -m vi-insert "\C-l":clear-screen
