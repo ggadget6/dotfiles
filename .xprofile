@@ -1,3 +1,0 @@
-xcompmgr -c &
-feh --bg-scale ~/Downloads/1440p-forest-dark-wallpaper.jpg
-export TERMINAL="st"
