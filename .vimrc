@@ -14,3 +14,5 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 set termguicolors
 set background=dark
+filetype on
+autocmd FileType make set noexpandtab
