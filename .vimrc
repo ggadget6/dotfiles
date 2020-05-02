@@ -16,7 +16,7 @@ xnoremap > >gv
 xnoremap < <gv
 
 set splitbelow splitright " splits shouldn't be dumb
-
+set fillchars+=vert:\  " remove ugly vertical line from split
 filetype on " allows you to detect filetypes
 autocmd FileType make set noexpandtab " in makefiles, want real tabs
 
