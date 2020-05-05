@@ -24,6 +24,13 @@ syntax on "used for vimwiki
 autocmd FileType make set noexpandtab " in makefiles, want real tabs
 
 " Plugins!
+" Automatically install minplug
+if empty(glob(substitute(&packpath, ",.*", "", "")."/pack/plugins/opt/minPlug")) " {{{
+  call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".
+        \ substitute(&packpath, ",.*", "", "")."/pack/plugins/opt/minPlug")
+  autocmd VimEnter * silent! MinPlugInstall | echo "minPlug: INSTALLED"
+endif " }}}
+
 packadd minPlug " initialize minPlug
 MinPlug morhetz/gruvbox
 MinPlug machakann/vim-sandwich
