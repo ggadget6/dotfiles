@@ -24,6 +24,12 @@ filetype plugin on "used for vim wiki
 syntax on "used for vimwiki
 autocmd FileType make set noexpandtab " in makefiles, want real tabs
 
+" Netrw options
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
+
 " Plugins!
 " Automatically install minplug
 if empty(glob(substitute(&packpath, ",.*", "", "")."/pack/plugins/opt/minPlug")) " {{{
