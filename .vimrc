@@ -5,6 +5,7 @@ set smarttab " idk tbh
 set autoindent 
 set cindent
 set relativenumber number " relativenumber gives you numbers relative to your current line, number replaces 0 with real line number
+let mapleader = "\<Space>" " remap leader key to space
 
 " Below: Window movement mappings
 map <C-j> <C-W>j
@@ -41,6 +42,8 @@ MinPlug tpope/vim-commentary
 MinPlug vimwiki/vimwiki
 " MinPlug christoomey/vim-tmux-navigator
 " MinPlug tmux-plugins/vim-tmux
+
+map <C-_> gc
 if has('nvim')
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
     " Neovim specific
