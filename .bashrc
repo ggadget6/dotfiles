@@ -8,6 +8,44 @@ case $- in
       *) return;;
 esac
 
+# don't launch in tty or on login!
+if [[ $DISPLAY ]]; then
+    # don't want tmux in vscode obviously, and must have tmux installed
+    if [ "$TERM_PROGRAM" != "vscode" ] && which tmux >/dev/null 2>&1; then
+        tmux_nb=$(tmux ls | wc -l)
+        # make new session called base_session only if there aren't any sessions yet
+        if [ "$tmux_nb" = "0" ]
+        then
+            tmux new-session -s base_session
+        else
+            # only launch tmux if not already in tmux
+            if [ -z "$TMUX" ]
+            then
+                # grab all defunct sessions and kill them (for when not explicitly closing tmux)
+                old_sessions=$(tmux ls 2>/dev/null | egrep "^[0-9]{10}.*[0-9]+\)$" | cut -f 1 -d:)
+
+                for old_session_id in $old_sessions
+                do
+                    tmux kill-session -t $old_session_id
+                done
+
+                # session id for new session is current Unix Time, so don't launch too fast
+                session_id=$(date +%s)
+                tmux new-session -d -t base_session -s $session_id
+
+                # attach to new session
+                tmux attach-session -t $session_id
+
+                # after detaching, kill session
+                tmux kill-session -t $session_id
+            fi
+        fi
+        # while test -z ${TMUX}; do
+        #     tmux attach || break
+        # done
+    fi
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
