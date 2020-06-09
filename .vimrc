@@ -46,13 +46,19 @@ MinPlug tpope/vim-commentary
 " MinPlug frazrepo/vim-rainbow
 " MinPlug junegunn/fzf.vim
 MinPlug vimwiki/vimwiki
-" MinPlug christoomey/vim-tmux-navigator
+" MinPlug sunaku/tmux-navigate
+MinPlug christoomey/vim-tmux-navigator
 " MinPlug tmux-plugins/vim-tmux
 
 map <C-_> gc
 if has('nvim')
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
     " Neovim specific
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+    MinPlug glacambre/firenvim
+    if exists('g:started_by_firenvim')
+        set laststatus=0
+        let fc['.*'] = { 'selector': 'textarea' }
+    endif
 else
     " vim specific
 endif
