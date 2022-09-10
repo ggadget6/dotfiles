@@ -49,6 +49,7 @@ MinPlug vimwiki/vimwiki
 " MinPlug sunaku/tmux-navigate
 MinPlug christoomey/vim-tmux-navigator
 " MinPlug tmux-plugins/vim-tmux
+MinPlug joshdick/onedark.vim main
 
 map <C-_> gc
 if has('nvim')
@@ -63,7 +64,11 @@ else
     " vim specific
 endif
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 let g:gruvbox_italic=1
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme onedark
 set termguicolors
-set background=dark
+" set background=dark
